@@ -1,0 +1,32 @@
+[project]
+name = "profiler"
+version = "0.0.1"
+description = "line profiler without using decorator"
+readme = "README.md"
+requires-python = ">=3.9"
+
+[tool.ruff]
+line-length = 92
+
+[tool.ruff.lint]
+extend-select = [
+  "UP",  # pyupgrade
+  "D",   # pydocstyle
+  "I",   # isort
+  "B",   # flake8-bugbear
+]
+
+[tool.ruff.lint.pydocstyle]
+convention = "google"
+
+[tool.pytest.ini_options]
+addopts = """
+--cov-report term-missing \
+--cov src/
+--cov-report xml:coverage.xml
+"""
+
+[tool.mypy]
+python_version = "3.9"
+ignore_missing_imports = true
+show_error_codes = true
